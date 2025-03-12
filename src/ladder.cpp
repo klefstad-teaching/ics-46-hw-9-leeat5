@@ -19,6 +19,10 @@ bool edit_distance_within(const string& str1, const string& str2, int d) {
     int len1 = str1.size();
     int len2 = str2.size();
 
+    if (str1 == str2) {
+        return true;
+    }
+
     if (abs(len1 - len2) > d) {
         return false;
     }
@@ -117,9 +121,15 @@ void load_words(set<string> & word_list, const string& file_name) {
 
 }
 void print_word_ladder(const vector<string>& ladder) {
-    for (string word : ladder) {
-        cout << word << " ";
+    if (ladder.length() > 0) {
+        for (string word : ladder) {
+            cout << word << " ";
+        }
+    } else {
+        cout << "No word ladder found.";
     }
+    
+    cout << endl;
 }
 // void my_assert(e) {
 //     cout << e << ((e) ? " passed": " failed") << endl;
