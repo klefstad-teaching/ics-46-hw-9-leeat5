@@ -17,10 +17,10 @@ bool is_adjacent(const string& word1, const string& word2) {
 }
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d) {
 
-    int len1 = word1.length();
-    int len2 = word2.length();
+    int len1 = str1.length();
+    int len2 = str2.length();
 
-    cout << "is adj: "<< word1 << " " << word2 << endl;
+    cout << "is adj: "<< str1 << " " << str2 << endl;
     if (abs(len1 - len2) > 1) {
         // cout << "improper length" << endl;
         return false;
@@ -31,7 +31,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         int c2 = 0;
         int count = 0;
         while (c1 < len1 && c2 < len2) {
-            if (word1[c1] != word2[c2]) {
+            if (str1[c1] != str2[c2]) {
                 count++;
                 if (count > 1) {
                     return false;
@@ -44,12 +44,12 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         }
 
     } else if (len2 > len1) { // need to add a char
-        return is_adjacent(word2, word1);
+        return is_adjacent(str2, str1);
     } else { // euqla
         int count = 0;
         for (int i = 0; i < len1; ++i) {
-            if (word1[i] != word2[i]) {
-                cout << word1[i] << " " << word2[i]<< " " << count << endl;
+            if (str1[i] != str2[i]) {
+                cout << str1[i] << " " << str2[i]<< " " << count << endl;
                 ++count;
                 if (count > 1) {
                     return false;
