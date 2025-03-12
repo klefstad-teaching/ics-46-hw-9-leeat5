@@ -12,8 +12,11 @@ using namespace std;
 void error(string word1, string word2, string msg) {
     cout << msg << " at: " << word1 << ", " << word2 << endl;
 }
-bool edit_distance_within(const std::string& str1, const std::string& str2, int d);
 bool is_adjacent(const string& word1, const string& word2) {
+    return edit_distance_within(word1, word2, 1);
+}
+bool edit_distance_within(const std::string& str1, const std::string& str2, int d) {
+
     int len1 = word1.length();
     int len2 = word2.length();
 
